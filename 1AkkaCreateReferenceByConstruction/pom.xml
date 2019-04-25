@@ -2,8 +2,8 @@
 <project>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>hello-akka-java</groupId>
-    <artifactId>app</artifactId>
+    <groupId>akka-patterns</groupId>
+    <artifactId>akka-create-reference-by-construction</artifactId>
     <version>1.0</version>
 
     <properties>
@@ -49,7 +49,7 @@
                     <arguments>
                         <argument>-classpath</argument>
                         <classpath />
-                        <argument>demo.CreateAndReferenceByMessage</argument>
+                        <argument>demo.CreateAndReferenceByConstruction</argument>
                     </arguments>
                 </configuration>
             </plugin>
