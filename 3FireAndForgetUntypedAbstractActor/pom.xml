@@ -49,7 +49,7 @@
                     <arguments>
                         <argument>-classpath</argument>
                         <classpath />
-                        <argument>demo.CreateAndReferenceByMessage</argument>
+                        <argument>demo.FireForgetUntypedAbstractActor</argument>
                     </arguments>
                 </configuration>
             </plugin>

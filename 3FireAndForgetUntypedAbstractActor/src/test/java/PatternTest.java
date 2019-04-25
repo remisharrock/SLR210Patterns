@@ -1,6 +1,4 @@
 
-import static org.junit.Assert.assertEquals;
-
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -26,11 +24,9 @@ public class PatternTest {
     }
 
     @Test
-    public void testSendReferenceByMessage() {
-        final TestKit testProbe = new TestKit(system);
-        final ActorRef a2 = system.actorOf(SecondActor.createActor(), "a2");
-        testProbe.getRef().tell(a2, ActorRef.noSender());
-        ActorRef ref = testProbe.expectMsgClass(ActorRef.class);
-        assertEquals(a2, ref);
+    public void testFireForget() {
+        final ActorRef a = system.actorOf(MyActor.createActor(), "a");
+        MyActor.MyMessage m = new MyActor.MyMessage("hello");
+        a.tell(m, ActorRef.noSender());
     }
 }

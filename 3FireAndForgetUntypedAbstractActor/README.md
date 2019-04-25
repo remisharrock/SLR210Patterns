@@ -13,9 +13,9 @@ uses `public void onReceive(Object m) throws Throwable {` and `if (m instanceof 
 ```
 title fire and forget
 
-a->UntypedAbstractActor:Message:"hello"
+main->a (UntypedAbstractActor):Message:"hello"
 space -4
-note right of UntypedAbstractActor: public void onReceive(Object o) throws Throwable { \n if (o instanceof Message){ ... } \n }
+note right of a (UntypedAbstractActor): public void onReceive(Object o) throws Throwable { \n if (o instanceof Message){ ... } \n }
 ```
 
-https://sequencediagram.org/index.html#initialData=C4S2BsFMAIDMQE4wIYDsAmcD2CDmlgAoQ5AWgD4BVVYATwAdJ0BBAIwGdgFkBjYZvjgBcAWUjt2yfEIBEAC0jhwWGYXb1eMUgBZCqLMBgIQuOcGhZY0anUYsOXXv0EIh0egFdW4ED2gA3LBBMLFQAJUgeSBB-SAAKAHlWACtI8ywASmhgOQQsAHd2aAAVXILkbxgAb2gAHVRoECs4rEbUTjQoy2gxCSlIDJqAOhHoAF86hrGgA
+https://sequencediagram.org/index.html#initialData=C4S2BsFMAIDMQE4wIYDsAmcD2CDmlgAoQgW2RFQFoA+ZaACgFVVgBPAB0nQEEAjAZ2AJkAY2DcxOAJQAuALKR+-ZPhkAiABaRw4LGsL92omJQAshVFmAwEIXBuDQssaHSYsOXPoOFiJwaRlodgBXXnAQEWgANywQTCxUACVIEUgQaMh6AHleACtUxywpaGANBCwAd35oABVyquRwmABvaAAdVGgQF3osbtRBNDTnaAUlFUgpNoA6OegAXw6uhaA
