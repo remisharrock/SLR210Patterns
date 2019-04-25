@@ -4,13 +4,15 @@ import akka.actor.Props;
 import akka.actor.AbstractActor;
 import akka.event.Logging;
 import akka.event.LoggingAdapter;
+import akka.japi.pf.FI.UnitApply;
 
-public class MyActor extends AbstractActor{
+public class MyActor extends AbstractActor {
 
 	// Logger attached to actor
 	private final LoggingAdapter log = Logging.getLogger(getContext().getSystem(), this);
 
-	public MyActor() {}
+	public MyActor() {
+	}
 
 	// Static function creating actor
 	public static Props createActor() {
@@ -21,19 +23,21 @@ public class MyActor extends AbstractActor{
 
 	static public class MyMessage {
 		public final String data;
-	
+
 		public MyMessage(String data) {
 			this.data = data;
 		}
+	}
+
+	@Override
+	public Receive createReceive() {
+		return receiveBuilder()
+			.match(MyMessage.class, this::receiveFunction)
+			.build();
 	  }
 
-	  @Override
-	  public Receive createReceive() {
-		return receiveBuilder()
-			.match(MyMessage.class, m -> {
-				log.info(m.data);
-			})
-			.build();
+	  public void receiveFunction(MyMessage m){
+		log.info(m.data);
 	  }
 
 
