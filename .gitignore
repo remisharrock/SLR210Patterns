@@ -1,3 +1,4 @@
+/.vscode
 /2CreateReferenceByMessage/.settings
 /2CreateReferenceByMessage/target
 /2CreateReferenceByMessage/.classpath
@@ -6,4 +7,7 @@
 /1CreateReferenceByConstruction/target
 /1CreateReferenceByConstruction/.classpath
 /1CreateReferenceByConstruction/.project
-/.vscode
+/3FireAndForgetUntypedAbstractActor/.settings
+/3FireAndForgetUntypedAbstractActor/target
+/3FireAndForgetUntypedAbstractActor/.classpath
+/3FireAndForgetUntypedAbstractActor/.project
