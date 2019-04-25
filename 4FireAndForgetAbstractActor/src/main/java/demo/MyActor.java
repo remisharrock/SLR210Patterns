@@ -4,7 +4,6 @@ import akka.actor.Props;
 import akka.actor.AbstractActor;
 import akka.event.Logging;
 import akka.event.LoggingAdapter;
-import akka.japi.pf.FI.UnitApply;
 
 public class MyActor extends AbstractActor {
 
