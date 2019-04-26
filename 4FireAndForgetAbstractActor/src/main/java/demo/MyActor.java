@@ -36,7 +36,7 @@ public class MyActor extends AbstractActor {
 	  }
 
 	  public void receiveFunction(MyMessage m){
-		log.info(m.data);
+		log.info("["+getSelf().path().name()+"] received message from ["+ getSender().path().name() +"] with data: ["+m.data+"]");
 	  }
 
 
