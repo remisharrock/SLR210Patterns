@@ -1,4 +1,14 @@
-Be very careful with messages content, especially with Objects: the immutability concerns the adress/reference of the object (it will not change over time because it is final) but not the content pointed at this adress/the content referenced by the object.
+Be very careful with messages content, especially with Objects: the immutability affects only the adress/reference of the object (indeed it is final) but not the content pointed at this adress (the content referenced by the object).
+
+The solution is to clone objects deeply, Deep cloning is a very difficult task in Java but there is a simple way to do it if the objects are Serializable. We can use org.apache.commons.lang3.SerializationUtils.clone(object) . For this, you have to add a dependency to your pom.xml :
+
+```
+<dependency>
+    <groupId>org.apache.commons</groupId>
+    <artifactId>commons-lang3</artifactId>
+    <version>3.9</version>
+</dependency>
+```
 
 ***This is a very important problem to understand, please look very carefully!***
 
