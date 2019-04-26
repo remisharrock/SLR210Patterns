@@ -1,6 +1,6 @@
-Be very careful with messages content, especially with Objects: the immutability affects only the adress/reference of the object (indeed it is final) but not the content pointed at this adress (the content referenced by the object).
+Be very careful with messages content, especially with objects: the immutability affects only the adress/reference of the object (indeed it is final) but not the content pointed at this adress (the content referenced by the object).
 
-The solution is to clone objects deeply, Deep cloning is a very difficult task in Java but there is a simple way to do it if the objects are Serializable. We can use org.apache.commons.lang3.SerializationUtils.clone(object) . For this, you have to add a dependency to your pom.xml :
+The solution is to clone objects deeply, but deep cloning is a very difficult task in Java. There is a simple way to do it if and only if the objects in the messages are Serializable. We can then use org.apache.commons.lang3.SerializationUtils.clone(object) to clone an object within an message. For this, you have to add a dependency to your pom.xml :
 
 ```
 <dependency>
@@ -9,6 +9,7 @@ The solution is to clone objects deeply, Deep cloning is a very difficult task i
     <version>3.9</version>
 </dependency>
 ```
+Careful, do not use the clone() method that exists by default in the Object class or ArrayList, because it doen't do deep cloning, especially for ArrayList it only clones the cell adresses but not the content... Look at this example to understand the problem:
 
 ***This is a very important problem to understand, please look very carefully!***
 
