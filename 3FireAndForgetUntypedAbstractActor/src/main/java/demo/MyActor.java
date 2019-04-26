@@ -31,7 +31,7 @@ public class MyActor extends UntypedAbstractActor{
 	public void onReceive(Object message) throws Throwable {
 		if(message instanceof MyMessage){
 			MyMessage m = (MyMessage) message;
-			log.info("Received message with data: "+m.data);
+			log.info("["+getSelf().path().name()+"] received message from ["+ getSender().path().name() +"] with data: ["+m.data+"]");
 		}
 	}
 
