@@ -15,19 +15,6 @@ public class FirstActor extends UntypedAbstractActor{
 
 	public FirstActor() {}
 
-	// Constructor setting actor reference
-	public FirstActor(ActorRef actorRef) {
-		this.actorRef = actorRef;
-		log.info("I was linked to actor reference {}", this.actorRef);
-	}
-
-	// Static function creating actor
-	public static Props createActor(ActorRef actorRef) {
-		return Props.create(FirstActor.class, () -> {
-			return new FirstActor(actorRef);
-		});
-	}
-
 	// Static function creating actor
 	public static Props createActor() {
 		return Props.create(FirstActor.class, () -> {
@@ -35,7 +22,6 @@ public class FirstActor extends UntypedAbstractActor{
 		});
 	}
 
-	
 
 	@Override
 	public void onReceive(Object message) throws Throwable {
