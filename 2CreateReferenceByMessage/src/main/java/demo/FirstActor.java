@@ -41,6 +41,7 @@ public class FirstActor extends UntypedAbstractActor{
 	public void onReceive(Object message) throws Throwable {
 		if(message instanceof ActorRef){
 		this.actorRef = (ActorRef) message;
+		log.info("["+getSelf().path().name()+"] received message from ["+ getSender().path().name() +"]");
 		log.info("Actor reference updated ! New reference is: {}", this.actorRef);
 		}
 	}
