@@ -2,11 +2,11 @@ package demo;
 
 import akka.actor.ActorRef;
 import akka.actor.Props;
-import akka.actor.AbstractActor;
+import akka.actor.UntypedAbstractActor;
 import akka.event.Logging;
 import akka.event.LoggingAdapter;
 
-public class FirstActor extends AbstractActor{
+public class FirstActor extends UntypedAbstractActor{
 
 	// Logger attached to actor
 	private final LoggingAdapter log = Logging.getLogger(getContext().getSystem(), this);
@@ -34,10 +34,21 @@ public class FirstActor extends AbstractActor{
 			return new FirstActor();
 		});
 	}
+
 	
-	// We have to override this function because this
-	// class extends AbstractActor
+
 	@Override
+	public void onReceive(Object message) throws Throwable {
+		if(message instanceof ActorRef){
+		this.actorRef = (ActorRef) message;
+		log.info("Actor reference updated ! New reference is: {}", this.actorRef);
+		}
+	}
+
+
+	/**
+	 * alternative for AbstractActor
+	 * @Override
 	public Receive createReceive() {
 		return receiveBuilder()
 				// When receiving a new message containing a reference to an actor,
@@ -48,4 +59,5 @@ public class FirstActor extends AbstractActor{
 				})
 				.build();
 	}
+	 */
 }

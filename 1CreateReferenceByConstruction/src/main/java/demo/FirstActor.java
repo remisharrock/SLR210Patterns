@@ -2,11 +2,11 @@ package demo;
 
 import akka.actor.ActorRef;
 import akka.actor.Props;
-import akka.actor.AbstractActor;
+import akka.actor.UntypedAbstractActor;
 import akka.event.Logging;
 import akka.event.LoggingAdapter;
 
-public class FirstActor extends AbstractActor{
+public class FirstActor extends UntypedAbstractActor{
 
 	// Logger attached to actor
 	private final LoggingAdapter log = Logging.getLogger(getContext().getSystem(), this);
@@ -27,12 +27,11 @@ public class FirstActor extends AbstractActor{
 		});
 	}
 
-	// We have to override this function because this
-	// class extends AbstractActor
 	@Override
-	public Receive createReceive() {
-		return receiveBuilder()
-					.build();
+	public void onReceive(Object message) throws Throwable {
+
 	}
+
+
 
 }
