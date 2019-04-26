@@ -1,9 +1,9 @@
 package demo;
 
 import akka.actor.Props;
-import akka.actor.AbstractActor;
+import akka.actor.UntypedAbstractActor;
 
-public class SecondActor extends AbstractActor {
+public class SecondActor extends UntypedAbstractActor {
 
 	// Empty Constructor
 	public SecondActor() {}
@@ -14,13 +14,11 @@ public class SecondActor extends AbstractActor {
 			return new SecondActor();
 		});
 	}
-	
-	// Empty createReceive function
-	// We have to override this function because this
-	// class extends AbstractActor
+
 	@Override
-	public Receive createReceive() {
-		return receiveBuilder()
-				.build();
+	public void onReceive(Object message) throws Throwable {
+
 	}
+	
+	
 }
